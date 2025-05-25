@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <title>Галерея - Студія краси</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <style>
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .gallery img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Студія краси</h1>
+    <p>Наша галерея робіт</p>
+</header>
+
+<nav>
+    <a href="{% url 'home' %}">Головна</a>
+    <a href="{% url 'services' %}">Послуги</a>
+    <a href="{% url 'gallery' %}">Галерея</a>
+    <a href="{% url 'contact' %}">Контакти</a>
+</nav>
+
+<div class="container">
+    <h2>Галерея</h2>
+    <div class="gallery">
+        <img src="{% static 'images/photo1.jpg' %}" alt="Фото 1">
+        <img src="{% static 'images/photo2.jpg' %}" alt="Фото 2">
+        <img src="{% static 'images/photo3.jpg' %}" alt="Фото 3">
+        <img src="{% static 'images/photo4.jpg' %}" alt="Фото 4">
+        <!-- Додай більше фотографій у папці static/images/ -->
+    </div>
+</div>
+
+<footer>
+    © 2025 Студія краси. Всі права захищені.
+</footer>
+
+</body>
+</html>

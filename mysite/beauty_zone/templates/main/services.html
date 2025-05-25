@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Послуги — Студія краси{% endblock %}
+
+{% block content %}
+<header class="page-header">
+  <h1>Наші послуги</h1>
+  <p>Виберіть найкраще для себе — професійний догляд та краса для вас</p>
+</header>
+
+<section class="services-grid">
+  {% for service in services %}
+  <article class="service-item" tabindex="0" aria-label="{{ service.name }}">
+    <img src="{{ service.image.url }}" alt="{{ service.name }}" class="service-image" />
+    <h3>{{ service.name }}</h3>
+    <p>{{ service.description }}</p>
+    <p><strong>Ціна:</strong> {{ service.price }} грн</p>
+    <p><strong>Тривалість:</strong> {{ service.duration }} хв</p>
+  </article>
+  {% empty %}
+  <p>Послуги наразі відсутні.</p>
+  {% endfor %}
+</section>
+{% endblock %}

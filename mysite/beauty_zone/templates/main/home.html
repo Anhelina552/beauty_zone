@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Косметологічний салон Beauty Zone — Головна{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero" aria-label="Головний банер">
+  <h1>Розкрий свою природню красу з Beauty Zone</h1>
+  <p>Професійний догляд, який підкреслить твою індивідуальність</p>
+  <a href="{% url 'services' %}" class="btn btn-primary">Переглянути послуги</a>
+</section>
+
+
+
+
+</section>
+
+<!-- Про нас -->
+<section id="about-section" class="about container">
+  <h2>Про косметологічний салон <span class="accent">Beauty Zone</span></h2>
+  <p>
+    У <strong>Beauty Zone</strong> ми віримо, що краса — це гармонія тіла й душі.
+    Наша команда професіоналів забезпечує високоякісні косметологічні процедури в атмосфері спокою та турботи.
+    Ми створюємо індивідуальні програми для вашої шкіри, щоб ви почувалися впевнено й чудово щодня.
+  </p>
+</section>
+
+<section class="popular-services container">
+  <h2>Найпопулярніші послуги</h2>
+  <div class="services-list">
+   {% for service in popular_services %}
+  {% if service.slug %}
+  <article class="service-card" tabindex="0" role="region" aria-label="{{ service.name }}">
+    {% if service.image %}
+    <a href="{% url 'service_detail' service.slug %}">
+      <img src="{{ service.image.url }}" alt="{{ service.name }}" class="service-image" loading="lazy" />
+    </a>
+    {% endif %}
+    <div class="service-content">
+      <h3><a href="{% url 'service_detail' service.slug %}">{{ service.name }}</a></h3>
+      <p>{{ service.description|truncatechars:120 }}</p>
+      <p class="price"><strong>Ціна: {{ service.price }} грн</strong></p>
+    </div>
+  </article>
+  {% endif %}
+{% empty %}
+  <p class="no-services">Поки що послуг немає.</p>
+{% endfor %}
+
+  </div>
+</section>
+
+<!-- Чому обирають Beauty Zone -->
+<section class="values container">
+  <h2>Чому обирають <span class="accent">Beauty Zone</span></h2>
+  <div class="values-list">
+    {% for value in values %}
+    <div class="value-item">
+      <svg class="icon" aria-hidden="true" focusable="false" width="56" height="56" fill="#c98eae" viewBox="0 0 24 24">
+        <path d="{{ value.icon_path }}" />
+      </svg>
+      <h3>{{ value.title }}</h3>
+      <p>{{ value.desc }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

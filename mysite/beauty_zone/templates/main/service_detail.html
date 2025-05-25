@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ service.name }} — Деталі{% endblock %}
+
+{% block content %}
+<section class="service-detail container">
+  <h1>{{ service.name }}</h1>
+  {% if service.image %}
+  <img src="{{ service.image.url }}" alt="{{ service.name }}" class="service-image" />
+  {% endif %}
+  <p>{{ service.description }}</p>
+  <p><strong>Ціна: {{ service.price }} грн</strong></p>
+  <a href="{% url 'services' %}" class="btn btn-secondary">Назад до послуг</a>
+</section>
+{% endblock %}
