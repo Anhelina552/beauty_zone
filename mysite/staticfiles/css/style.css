@@ -1,0 +1,535 @@
+/* ==============================
+   Пастельна тема — змінні
+============================== */
+:root {
+  --pastel-bg: #fffafc;
+  --pastel-accent: #f9dde2;
+  --pastel-pink: #e8b4c6;
+  --pastel-purple: #d6c8e2;
+  --pastel-shadow: rgba(232, 180, 198, 0.4);
+  --text-dark: #4d4d4d;
+  --text-light: #777;
+  --btn-bg: #e67ca5;
+  --btn-bg-hover: #cf5c87;
+  --btn-text: #fff;
+}
+
+/* ==============================
+   Загальні стилі
+============================== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--pastel-bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ==============================
+   Герой секція
+============================== */
+.hero {
+  background: linear-gradient(135deg, #f8e6f0, #fef6f8);
+  padding: 100px 20px 120px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px var(--pastel-shadow);
+  position: relative;
+}
+
+.logo-text {
+  color: var(--btn-bg);
+  font-size: 3.2rem;
+  font-weight: 900;
+  margin-bottom: 0.3em;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 40px;
+  text-decoration: none;
+  box-shadow: 0 6px 12px rgba(230, 124, 165, 0.4);
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.hero-btn:hover,
+.hero-btn:focus {
+  background-color: var(--btn-bg-hover);
+  outline: none;
+  box-shadow: 0 8px 16px rgba(207, 92, 135, 0.7);
+}
+
+.scroll-down svg {
+  margin-top: 40px;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  color: var(--btn-bg);
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+/* ==============================
+   Про нас
+============================== */
+.about {
+  margin: 80px auto;
+  max-width: 900px;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.4rem;
+  color: var(--btn-bg);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.about p {
+  font-size: 1.1rem;
+  color: var(--text-dark);
+  line-height: 1.8;
+}
+
+/* ==============================
+   Популярні послуги
+============================== */
+.popular-services .service-image {
+  width: 110%; /* Збільшення ширини на 10% */
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
+.popular-services h2 {
+  font-size: 2.4rem;
+  color: var(--btn-bg);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(230, 124, 165, 0.6);
+  outline: none;
+}
+
+.service-image {
+  width: 50%;
+  max-height: 700px; /* обмеження по висоті */
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+
+
+.service-card:hover .service-image {
+  transform: scale(1.05); /* Збільшення на 5% при наведенні */
+}
+
+
+.service-content {
+  padding: 15px 20px 25px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.service-content h3 {
+  margin-top: 0;
+  color: var(--btn-bg);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-content p {
+  color: var(--text-dark);
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.price {
+  color: var(--btn-bg);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+
+/* Повідомлення про відсутність послуг */
+.no-services {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--text-light);
+  padding: 40px 0;
+}
+
+/* ==============================
+   Чому обирають нас
+============================== */
+.values {
+  margin: 80px 0;
+}
+
+.values h2 {
+  font-size: 2.4rem;
+  color: var(--btn-bg);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
+
+.values-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.value-item {
+  background: rgba(255, 250, 252, 0.85);
+  border: 1px solid #f3e0e4;
+  box-shadow: 0 10px 30px var(--pastel-shadow);
+  border-radius: 20px;
+  padding: 30px 20px;
+  width: 260px;
+  text-align: center;
+  transition: box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.value-item:hover,
+.value-item:focus {
+  box-shadow: 0 20px 40px rgba(255, 77, 109, 0.6);
+  outline: none;
+}
+
+.value-item .icon {
+  margin-bottom: 15px;
+}
+
+.value-item h3 {
+  color: var(--btn-bg);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.value-item p {
+  color: var(--text-dark);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* ==============================
+   Футер
+============================== */
+.footer {
+  background-color: #f0e6ec;
+  color: var(--text-dark);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 0.95rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icon {
+  margin: 0 10px;
+  color: var(--btn-bg);
+  font-size: 1.4rem;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.social-icon:hover,
+.social-icon:focus {
+  color: var(--btn-bg-hover);
+  outline: none;
+}
+
+/* ==============================
+   Інші стилі
+============================== */
+.highlight-images {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 60px 20px;
+  flex-wrap: wrap;
+}
+
+.highlight img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffdce5;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.highlight img:hover,
+.highlight img:focus {
+  transform: scale(1.05);
+  box-shadow: 0 15px 40px rgba(230, 124, 165, 0.4);
+  outline: none;
+}
+.hero.pastel-hero {
+  background-color: #f8e6f0; /* Світлий пастельний рожевий колір */
+  box-shadow: inset 0 0 0 500px rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  padding: 100px 20px;
+  text-align: center;
+}
+/* Основи меню */
+.site-header {
+  background-color: #f8e6f0; /* пастельний рожевий */
+  box-shadow: 0 2px 6px rgba(201, 142, 174, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+  font-size: 1.8rem;
+  color: #c98eae;
+  text-decoration: none;
+}
+
+  .nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.dropdown {
+  position: relative; /* для абсолютного позиціонування меню */
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* показуємо меню під пунктом */
+  left: 0;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  padding: 0.5rem 0;
+  margin: 0;
+  list-style: none;
+  min-width: 150px;
+  z-index: 10;
+}
+
+.dropdown-menu li a {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Показуємо меню при наведенні */
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+.nav-list li a {
+  text-decoration: none;
+  color: #4d4d4d;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-list li a:hover,
+.nav-list li a:focus {
+  color: #e67ca5;
+  outline: none;
+}
+
+/* Кнопка для мобільного меню */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #c98eae;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  position: absolute;
+}
+
+.hamburger::before {
+  top: -8px;
+  left: 0;
+}
+
+.hamburger::after {
+  top: 8px;
+  left: 0;
+}
+
+/* Адаптивність */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: block;
+  }
+
+
+
+}
+.hero {
+  position: relative;
+  border-radius: 20px;
+  color: #e67ca5; /* рожевий */
+  padding: 40px 20px;
+  animation: bgFade 20s infinite;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 85vh;       /* збільшена висота */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.3); /* затемнення для читабельності */
+  border-radius: 20px;
+  z-index: 0;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+
+/* Кнопка */
+.btn-primary {
+  margin-top: 25px;
+  padding: 14px 32px;
+  background: #e67ca5;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgba(230,124,165,0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background: #d45c8f;
+  box-shadow: 0 10px 20px rgba(212, 92, 143, 0.6);
+  outline: none;
+}
+
+
+@keyframes bgFade {
+  0% {
+    background-image: url('/static/images/bg1.jpg');
+  }
+  33% {
+    background-image: url('/static/images/bg2.jpg');
+  }
+  66% {
+    background-image: url('/static/images/bg3.jpg');
+  }
+  100% {
+    background-image: url('/static/images/bg1.jpg');
+  }
+}
