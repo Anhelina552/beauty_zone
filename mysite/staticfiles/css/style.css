@@ -35,13 +35,23 @@ body {
    Герой секція
 ============================== */
 .hero {
-  background: linear-gradient(135deg, #f8e6f0, #fef6f8);
-  padding: 100px 20px 120px;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px var(--pastel-shadow);
   position: relative;
+  border-radius: 20px;
+  color: var(--btn-bg); /* рожевий */
+  padding: 100px 20px 120px;
+  animation: bgFade 20s infinite;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 30px var(--pastel-shadow);
 }
+
 
 .logo-text {
   color: var(--btn-bg);
@@ -142,16 +152,10 @@ body {
 }
 
 .service-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  max-height: 400px; /* або будь-яке інше значення */
+  overflow: hidden;  /* щоб вміст не виходив за межі */
 }
+
 
 .service-card:hover,
 .service-card:focus-within {
@@ -161,11 +165,14 @@ body {
 }
 
 .service-image {
-  width: 50%;
-  max-height: 700px; /* обмеження по висоті */
-  object-fit: cover;
+  width: 400px;
+  max-height: none; /* або видали, щоб не обмежувати висоту */
+  object-fit: contain; /* щоб не обрізало, а просто масштабувало */
+  margin: 0 auto;
+  display: block;
   transition: transform 0.3s ease;
 }
+
 
 
 
@@ -181,20 +188,53 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
-
 .service-content h3 {
-  margin-top: 0;
-  color: var(--btn-bg);
-  font-weight: 700;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem; /* було 1.3rem */
 }
 
 .service-content p {
-  color: var(--text-dark);
-  font-size: 1rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
 }
+.services-grid .service-image {
+  width: 70%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+
+h3 a:hover,
+h3 a:focus,
+.service-link:hover {
+  text-decoration: none !important;
+  color: var(--btn-bg);
+}
+.service-detail-image {
+    width: 100%;
+    max-width: 400px; /* або 300px */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin-bottom: 20px;
+}
+
+
+
+.service-detail.container {
+  max-width: 200px; /* або інший бажаний розмір */
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+
+
+
 
 .price {
   color: var(--btn-bg);
@@ -462,22 +502,6 @@ body {
 
 
 }
-.hero {
-  position: relative;
-  border-radius: 20px;
-  color: #e67ca5; /* рожевий */
-  padding: 40px 20px;
-  animation: bgFade 20s infinite;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 85vh;       /* збільшена висота */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
 .hero::before {
   content: "";
@@ -532,4 +556,39 @@ body {
   100% {
     background-image: url('/static/images/bg1.jpg');
   }
+}
+.masters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.master-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.master-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+<style>
+  .master-photo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+</style>
+.gallery-image {
+  max-width: 200px; /* або будь-яке інше значення */
+  height: auto;
+  border-radius: 8px;
+  margin: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

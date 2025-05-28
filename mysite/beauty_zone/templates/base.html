@@ -19,6 +19,7 @@
       <li><a href="{% url 'home' %}">Головна</a></li>
       <li class="dropdown" aria-haspopup="true" aria-expanded="false">
   <a href="{% url 'services' %}" class="dropdown-toggle">Послуги</a>
+
   <ul class="dropdown-menu" aria-label="Список послуг">
     {% for service in all_services %}
       <li><a href="{% url 'service_detail' service.slug %}">{{ service.name }}</a></li>
@@ -29,7 +30,10 @@
 </li>
 
       <li><a href="{% url 'about' %}">Про нас</a></li>
+        <li><a href="{% url 'master_list' %}">Майстри</a></li>
+      <li><a href="{% url 'gallery' %}">Галерея</a></li>
       <li><a href="{% url 'contact' %}">Контакти</a></li>
+
     </ul>
   </nav>
 </header>
@@ -40,11 +44,8 @@
 <main>
     {% block content %}
     <section class="highlight-images">
-        <div class="highlight">
-            <img src="{% static 'images/service1.jpg' %}" alt="Процедура 1">
-        </div>
-        <div class="highlight">
-            <img src="{% static 'images/service2.jpg' %}" alt="Процедура 2">
+
+
         </div>
     </section>
     {% endblock %}

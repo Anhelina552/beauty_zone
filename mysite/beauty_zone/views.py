@@ -1,6 +1,11 @@
-from django.shortcuts import render
+
 from django.views.generic.detail import DetailView
 from .models import Service, GalleryImage
+from django.shortcuts import render, redirect
+from .forms import AppointmentForm
+
+from .models import Master
+
 
 def home(request):
     popular_services = Service.objects.all()[:3]  # твоя логіка
@@ -22,15 +27,33 @@ def services(request):
     all_services = Service.objects.all()
     return render(request, 'main/services.html', {'services': all_services})
 
+
 def gallery(request):
     images = GalleryImage.objects.all()
     return render(request, 'main/gallery.html', {'images': images})
-
 def about(request):
     return render(request, 'main/about.html')
 
 def contact(request):
     return render(request, 'main/contact.html')
+def master_list(request):
+    masters = Master.objects.all()
+    return render(request, 'main/masters.html', {'masters': masters})
+
+
+def appointment_create(request):
+    if request.method == 'POST':
+        form = AppointmentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('appointment_success')
+    else:
+        form = AppointmentForm()
+    return render(request, 'main/appointment_form.html', {'form': form})
+
+def appointment_success(request):
+    return render(request, 'main/appointment_success.html')
+
 
 class ServiceDetailView(DetailView):
     model = Service

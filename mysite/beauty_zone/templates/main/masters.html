@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align: center;">Майстри</h1>
+<div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+  {% for master in masters %}
+    <div style="border: 1px solid #ddd; padding: 15px; width: 220px; text-align: center; box-shadow: 0 0 5px rgba(0,0,0,0.1); border-radius: 12px;">
+      {% if master.photo %}
+        <img src="{{ master.photo.url }}" alt="{{ master.name }}"
+             style="width: 200px; height: 200px; object-fit: cover; border-radius: 15px; display: block; margin: 0 auto;">
+      {% else %}
+        <div style="width: 200px; height: 200px; background: #ccc; border-radius: 15px; margin: 0 auto;"></div>
+      {% endif %}
+      <h3 style="margin-top: 15px;">{{ master.name }}</h3>
+      <p>{{ master.bio|truncatewords:20 }}</p>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

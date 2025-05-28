@@ -10,12 +10,20 @@
 
 <section class="services-grid">
   {% for service in services %}
-  <article class="service-item" tabindex="0" aria-label="{{ service.name }}">
+  <article class="service-item"
+           onclick="window.location.href='{% url 'service_detail' service.slug %}'"
+           tabindex="0"
+           aria-label="{{ service.name }}"
+           style="cursor: pointer;">
     <img src="{{ service.image.url }}" alt="{{ service.name }}" class="service-image" />
     <h3>{{ service.name }}</h3>
-    <p>{{ service.description }}</p>
+    <p>{{ service.description|truncatechars:150 }}</p>
     <p><strong>Ціна:</strong> {{ service.price }} грн</p>
-    <p><strong>Тривалість:</strong> {{ service.duration }} хв</p>
+    {% with minutes=service.duration.total_seconds|divisibleby:60 %}
+    <p>Тривалість: {{ service.duration_str }}</p>
+
+{% endwith %}
+
   </article>
   {% empty %}
   <p>Послуги наразі відсутні.</p>

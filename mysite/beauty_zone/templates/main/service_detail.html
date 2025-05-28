@@ -6,7 +6,7 @@
 <section class="service-detail container">
   <h1>{{ service.name }}</h1>
   {% if service.image %}
-  <img src="{{ service.image.url }}" alt="{{ service.name }}" class="service-image" />
+  <img src="{{ service.image.url }}" alt="{{ service.name }}" class="service-detail-image" />
   {% endif %}
   <p>{{ service.description }}</p>
   <p><strong>Ціна: {{ service.price }} грн</strong></p>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Онлайн запис на процедуру{% endblock %}
+
+{% block content %}
+<h2>Онлайн запис на процедуру</h2>
+
+<form method="post" novalidate>
+  {% csrf_token %}
+  {{ form.as_p }}
+
+  <button type="submit" class="btn btn-primary">Записатися</button>
+</form>
+{% endblock %}
