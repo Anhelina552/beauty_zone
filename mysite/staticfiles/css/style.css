@@ -35,23 +35,13 @@ body {
    Герой секція
 ============================== */
 .hero {
-  position: relative;
-  border-radius: 20px;
-  color: var(--btn-bg); /* рожевий */
+  background: linear-gradient(135deg, #f8e6f0, #fef6f8);
   padding: 100px 20px 120px;
-  animation: bgFade 20s infinite;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 85vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  border-radius: 20px;
   box-shadow: 0 10px 30px var(--pastel-shadow);
+  position: relative;
 }
-
 
 .logo-text {
   color: var(--btn-bg);
@@ -150,28 +140,91 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
 }
-
-.service-card {
-  max-height: 400px; /* або будь-яке інше значення */
-  overflow: hidden;  /* щоб вміст не виходив за межі */
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Центруємо всі карточки */
+  gap: 30px;
+  padding: 20px 0;
 }
 
+/* Одна карточка послуги */
+.service-item {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+  padding: 20px;
+  width: 320px; /* Фіксована ширина для однорідності */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центруємо вміст */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
 
-.service-card:hover,
-.service-card:focus-within {
+.service-item:hover,
+.service-item:focus {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(230, 124, 165, 0.6);
   outline: none;
 }
-
 .service-image {
-  width: 400px;
-  max-height: none; /* або видали, щоб не обмежувати висоту */
-  object-fit: contain; /* щоб не обрізало, а просто масштабувало */
-  margin: 0 auto;
+  width: 70%; /* Більше фото */
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
   display: block;
   transition: transform 0.3s ease;
 }
+
+.service-item:hover .service-image {
+  transform: scale(1.05);
+}
+
+/* Заголовок */
+.service-item h3 {
+  color: var(--btn-bg);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Опис */
+.service-item p {
+  color: var(--text-dark);
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  text-align: center;
+}
+
+/* Ціна і тривалість */
+.service-item p strong {
+  color: var(--btn-bg);
+  font-weight: 700;
+}
+.service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Центруємо контент */
+  gap: 15px;
+  padding: 20px;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  max-width: 320px; /* Задаємо максимальну ширину для картки */
+  margin: 0 auto; /* Центруємо кожну карточку в колонці */
+}
+
+
+
+.service-card:hover .service-image {
+  transform: scale(1.05);
+}
+
+
 
 
 
@@ -188,53 +241,20 @@ body {
   flex-direction: column;
   justify-content: space-between;
 }
+
 .service-content h3 {
-  font-size: 1.1rem; /* було 1.3rem */
+  margin-top: 0;
+  color: var(--btn-bg);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
 }
 
 .service-content p {
-  margin-bottom: 1rem;
-  line-height: 1.5;
+  color: var(--text-dark);
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
 }
-.services-grid .service-image {
-  width: 70%;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-
-h3 a:hover,
-h3 a:focus,
-.service-link:hover {
-  text-decoration: none !important;
-  color: var(--btn-bg);
-}
-.service-detail-image {
-    width: 100%;
-    max-width: 400px; /* або 300px */
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    display: block;
-    margin-bottom: 20px;
-}
-
-
-
-.service-detail.container {
-  max-width: 200px; /* або інший бажаний розмір */
-  margin: 0 auto;
-  padding: 20px;
-}
-
-
-
-
-
 
 .price {
   color: var(--btn-bg);
@@ -502,6 +522,22 @@ h3 a:focus,
 
 
 }
+.hero {
+  position: relative;
+  border-radius: 20px;
+  color: #e67ca5; /* рожевий */
+  padding: 40px 20px;
+  animation: bgFade 20s infinite;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 85vh;       /* збільшена висота */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 .hero::before {
   content: "";
@@ -556,39 +592,4 @@ h3 a:focus,
   100% {
     background-image: url('/static/images/bg1.jpg');
   }
-}
-.masters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.master-card {
-  width: 300px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  text-align: center;
-  background-color: #fff;
-}
-
-.master-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-<style>
-  .master-photo {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-</style>
-.gallery-image {
-  max-width: 200px; /* або будь-яке інше значення */
-  height: auto;
-  border-radius: 8px;
-  margin: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
