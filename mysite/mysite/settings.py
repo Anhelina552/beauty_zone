@@ -135,7 +135,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "staticfiles",  # якщо у тебе є спільна папка static
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # або інша папка для зібраної статики
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # або інша папка для зібраної статики
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
